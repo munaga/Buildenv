@@ -1,8 +1,8 @@
 ---
 # ------------- AWS CREDENTIALS ------------------ #
 
-aws_access_key: "AKIAI3CH6HKTWS6BHCHQ"
-aws_secret_key: "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"
+aws_access_key: ""
+aws_secret_key: ""
 
 # ------------- CIDR BLOCK ----------------------- #
 
