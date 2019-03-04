@@ -1,0 +1,26 @@
+---
+# tasks file for roles/web_security_group
+- name: Creating WebSecurity group
+  ec2_group:
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+    name: "{{web_sg_name}}"
+    tags: {"Name":"{{web_sg_name}}"}
+    description: "{{web_sg_desc}}"
+    vpc_id: "{{vpc.vpc.id}}"
+    region: "{{region}}"
+    rules:
+     - proto: tcp
+       ports:
+       - 80
+       cidr_ip: 0.0.0.0/0
+       rule_desc: Allow http from 80
+     - proto: tcp
+       ports:
+       - 22
+       cidr_ip: "{{allow_ec2_login_from}}"
+       rule_desc: Allow from ssh port 22
+  register: web_sg
+- name: Print security group
+  debug:
+   var: web_sg

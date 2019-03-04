@@ -1,0 +1,6 @@
+---
+# handlers file for roles/deploy_application_jboss
+- name: jboss restart
+  service:
+    name: jboss 
+    state: restarted

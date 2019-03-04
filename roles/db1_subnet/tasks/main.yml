@@ -1,0 +1,15 @@
+---
+# tasks file for roles/db1_subnet
+- name: Creating {{db1_subnet_name}} subnet
+  ec2_vpc_subnet:
+   aws_access_key: "{{aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   state: present
+   vpc_id: "{{vpc.vpc.id}}"
+   region: "{{region}}"
+   az: "{{db1_subnet_az}}"
+   cidr: "{{db_cidr_block_subnet1}}"
+   resource_tags:
+    Name: "{{db1_subnet_name}}"
+    Environment: "{{db1_subnet_env}}"
+  register: db1_subnet

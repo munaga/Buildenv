@@ -1,0 +1,8 @@
+---
+- hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  gather_facts: true
+  roles:
+  - ../roles/create-s3-bucket
+  - ../roles/s3

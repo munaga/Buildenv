@@ -1,0 +1,15 @@
+---
+- hosts: webserver
+  name: Creating app routetable
+  vars_files:
+  - ../variables_file.yml
+  tasks:
+  - name: Creating app routetable
+    include_role:
+     name: ../roles/routetable_appserver
+    vars:
+     rt_name: "{{apprt_name}}"
+     destination: "{{web_destination}}"
+     subnet1_id: "{{appsubnet1.subnet.id}}"
+     subnet2_id: "{{appsubnet2.subnet.id}}"
+     gateway_id: "{{nat_gateway.nat_gateway_id}}"

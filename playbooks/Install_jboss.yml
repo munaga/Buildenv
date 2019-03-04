@@ -1,0 +1,10 @@
+---
+# This playbook deploys a simple standalone JBoss server.
+
+- hosts: tag_Name_CICDAppServer*
+  become: true
+  user: ec2-user
+  vars:
+   ansible_ssh_private_key_file: /etc/ansible/ansible.pem
+  roles:
+  - roles/jboss-standalone

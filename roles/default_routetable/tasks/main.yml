@@ -1,0 +1,20 @@
+# tasks file for roles/default_routetable
+---
+# tasks file for roles/routetable
+- name: Updating default routetable for VPC peering 
+  ec2_vpc_route_table:
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+    vpc_id: "{{peer_vpc_id}}"
+    region: "{{peer_region}}"
+    tags:
+     Name: VPC_Peering_Default_RouteTable
+    subnets:
+    - "{{default_subnet_id}}"
+    routes:
+     - dest: "{{destination}}"
+       gateway_id: "{{default_gateway_id }}"
+     - dest: "{{default_vpc_destination}}"
+       vpc_peering_connection_id: "{{vpc_peer.peering_id}}"
+  register: routetable_info
+

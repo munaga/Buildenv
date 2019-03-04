@@ -1,0 +1,3 @@
+---
+- import_playbook: ec2_webserver1.yml
+- import_playbook: ec2_webserver2.yml

@@ -1,0 +1,29 @@
+- name: Download java 1.8
+  copy:
+   src: /etc/ansible/jdk-8u202-linux-x64.tar.gz
+   dest: /opt/wildfly_jboss
+   owner: jboss
+   group: jboss
+   mode: 0755
+- name: Unarchive Java
+  unarchive:
+    dest: /opt/wildfly_jboss
+    src: /opt/wildfly_jboss/jdk-8u202-linux-x64.tar.gz
+    creates: /opt/wildfly_jboss/java
+    owner: jboss
+    group: jboss
+    copy: no
+- name: Remove java archived files
+  file:
+    path: /opt/wildfly_jboss/jdk-8u202-linux-x64.tar.gz
+    state: absent
+- name: Set Java HOME
+  lineinfile: dest=~/.bash_profile regexp='^JAVA_HOME'>
+              line="export JAVA_HOME=/opt/wildfly_jboss/jdk1.8.0_202"
+              state=present
+- name: Set JAVA PATH
+  lineinfile: dest=~/.bash_profile regexp='^JAVA_HOME'>
+              line="export PATH=$JAVA_HOME/bin:$PATH"
+              state=present
+- name: Source Bashrc
+  action: shell source ~/.bash_profile

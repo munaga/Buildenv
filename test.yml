@@ -1,0 +1,10 @@
+---
+- name: Get hostname
+  hosts: localhost
+  tasks:
+  - name: getting ip address
+    shell: echo `hostname -i`
+    register: result
+  - name: print output
+    debug:
+      var: result.stdout_lines

@@ -1,0 +1,7 @@
+---
+- include_tasks: linux_user_group_creation.yml
+- include_tasks: create_directory.yml
+- include_tasks: install_dependency_software.yml
+- include_tasks: configure_java.yml
+- include_tasks: install_jboss.yml
+- include_tasks: jboss_as_service.yml

@@ -1,0 +1,12 @@
+---
+# tasks file for roles/nat_gateway
+- name: Create NAT Gateway
+  ec2_vpc_nat_gateway:
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+    state: present
+    subnet_id: "{{output1.subnet.id}}"
+    wait: yes
+    region: "{{region}}"
+    if_exist_do_not_create: true
+  register: nat_gateway

@@ -1,0 +1,31 @@
+# tasks file for roles/ec2_web
+- name: Creating {{instance_name}} EC2 instance
+  vars:
+   public_dns_name: {}
+  ec2:
+   aws_access_key: "{{aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   region: "{{region}}"
+   key_name: "{{key_pair}}"
+   exact_count: 1
+   count_tag:
+     Name: "{{instance_name}}"
+   instance_tags: { "Name":"{{instance_name}}"}
+   image: "{{ec2_image}}"
+   instance_type: "{{ec2_type}}"
+   group: "{{sg}}"
+   vpc_subnet_id: "{{ec2_subnet_id}}"
+   assign_public_ip: "{{public_ip}}"
+   wait: true
+   termination_protection: yes
+  register: ec2_instance
+- set_fact:
+   vpc_info: "{{ vpc_info | combine({ec2_name:ec2_instance}) }}"
+- set_fact:
+   public_dns_name: vpc_info.{{ec2_name}}.tagged_instances[0].public_dns_name
+- name: Wait for SSH to come up
+  wait_for: 
+     host: ec2_instance.tagged_instances[0].public_dns_name
+     delay: 5 
+     timeout: 10 
+     state: started

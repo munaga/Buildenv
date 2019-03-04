@@ -1,0 +1,21 @@
+---
+# tasks file for roles/routetable
+- name: Creating {{rt_name}} routetable
+  ec2_vpc_route_table:
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+    vpc_id: "{{vpc.vpc.id}}"
+    region: "{{region}}"
+    tags:
+     Name: "{{rt_name}}"
+    subnets:
+    - "{{subnet1_id}}"
+    - "{{subnet2_id}}"
+    routes:
+     - dest: "{{destination}}"
+       gateway_id: "{{gateway_id }}"
+     - dest: "{{peer_vpc_destination}}"
+       vpc_peering_connection_id: "{{vpc_peer.peering_id}}"
+  register: routetable_info
+- set_fact:
+     vpc_info: "{{ vpc_info | combine ({rt_name: routetable_info}) }}"

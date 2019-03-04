@@ -1,0 +1,6 @@
+---
+- hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  roles: 
+  - ../roles/nat_gateway

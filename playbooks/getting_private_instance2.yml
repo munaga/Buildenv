@@ -1,0 +1,19 @@
+---
+- name: Getting private IP address
+  hosts: webserver
+  gather_facts: true
+  user: ansible
+  vars_files:
+  - ../variables_file.yml
+  tasks:
+  - name: getting ip address
+    ec2_remote_facts:
+     aws_access_key: "{{aws_access_key}}"
+     aws_secret_key: "{{aws_secret_key}}"
+     region: "{{region}}"
+     filters: 
+        "tag:Name": CICDAppServer2
+    register: ec2_facts
+  - name: print output
+    debug:
+      var: ec2_facts.instances[0].private_ip_address

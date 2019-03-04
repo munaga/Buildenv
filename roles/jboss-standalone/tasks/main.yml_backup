@@ -1,0 +1,84 @@
+---
+- name: Creating user on linux
+  group:
+      name: jboss
+      state: present
+- name: Create a group on linux
+  user:
+      name: jboss
+      group: jboss
+- name: Creating Jboss directory
+  file:
+      path: /opt/wildfly_jboss/
+      owner: jboss
+      group: jboss
+      mode: 0775
+      recurse: yes
+      state: directory
+- name: Install basic dependencies software
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+   - unzip
+   - wget
+   - libselinux-python
+   - libsemanage-python
+- name: Download java 1.8
+  copy:
+   src: /etc/ansible/jdk-8u202-linux-x64.tar.gz
+   dest: /opt/wildfly_jboss
+   owner: jboss
+   group: jboss
+   mode: 0755
+- name: Unarchive Java
+  unarchive:
+    dest: /opt/wildfly_jboss
+    src: /opt/wildfly_jboss/jdk-8u202-linux-x64.tar.gz
+    creates: /opt/wildfly_jboss/java
+    owner: jboss
+    group: jboss
+    copy: no
+- name: Download JBoss from wildfly
+  get_url:
+    url: https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip
+    owner: jboss
+    group: jboss
+    dest: /opt/wildfly_jboss
+
+- name: Extract archive
+  unarchive:
+    dest: /opt/wildfly_jboss
+    src: /opt/wildfly_jboss/wildfly-15.0.1.Final.zip
+    owner: jboss
+    group: jboss
+    copy: no
+- name: Remove java archived files
+  file:
+    path: /opt/wildfly_jboss/jdk-8u202-linux-x64.tar.gz
+    state: absent
+- name: Remove jboss archived files
+  file:
+    path: /opt/wildfly_jboss/wildfly-15.0.1.Final.zip
+    state: absent
+- name: Set Java HOME
+  lineinfile: dest=~/.bash_profile regexp='^JAVA_HOME'>
+                 line="export JAVA_HOME=/opt/wildfly_jboss/jdk1.8.0_202"
+- name: Set JAVA PATH
+  lineinfile: dest=~/.bash_profile regexp='^JAVA_HOME'>
+                 line="export PATH=$JAVA_HOME/bin:$PATH"
+- name: Source Bashrc
+  action: shell source ~/.bash_profile
+- debug: var=ansible_eth0.ipv4.address
+- name: Updating bind address for jboss in Standalone.xml file
+  replace:
+   path: /opt/wildfly_jboss/wildfly-15.0.1.Final/standalone/configuration/standalone.xml
+   regexp: '127.0.0.1'
+   replace: "{{item}}"
+   owner: jboss
+   group: jboss
+   mode: 0644
+  with_items:
+  - "{{ansible_eth0.ipv4.address}}"
+
+   

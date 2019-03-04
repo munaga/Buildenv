@@ -1,0 +1,4 @@
+---
+- name: Install httpd Package
+  yum: name=httpd state=latest
+

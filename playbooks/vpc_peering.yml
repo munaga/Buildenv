@@ -1,0 +1,8 @@
+---
+- name: Creating a VPC peer connection
+  hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  roles:
+  - ../roles/vpc_peering
+  - ../roles/accept_vpc_peering

@@ -1,0 +1,22 @@
+---
+# tasks file for roles/app_security_group
+- name: Creating App Security group
+  ec2_group:
+   aws_access_key: "{{aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   name: "{{app_sg_name}}"
+   tags: { "Name":"{{app_sg_name}}"}
+   description: "{{app_sg_desc}}"
+   vpc_id: "{{vpc.vpc.id}}"
+   region: "{{region}}"
+   rules:
+   - proto: "{{app_protocol}}"
+     ports:
+     - 22
+     - 8080
+     group_id: "{{web_sg.group_id}}"
+     rule_desc: "{{app_sg_rule_desc}}"
+  register: app_sg
+- name: print app security group
+  debug:
+   var: app_sg

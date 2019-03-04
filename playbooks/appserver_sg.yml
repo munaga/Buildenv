@@ -1,0 +1,13 @@
+---
+- hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  tasks:
+  - set_fact:
+      app_sg_name: "{{app_sg_name}}"
+      app_sg_desc: "{{app_sg_desc}}"
+      app_sg_rule_desc: "{{app_sg_rule_desc}}"
+      app_protocol: "{{app_protocol}}"
+      app_port_no: "{{app_port_no}}"
+  roles:
+  - ../roles/app_security_group

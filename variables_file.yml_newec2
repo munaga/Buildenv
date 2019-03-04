@@ -1,0 +1,106 @@
+---
+# ------------- AWS CREDENTIALS ------------------ #
+
+aws_access_key: "AKIAJFYNK4HAOJ7VFHWA" 
+aws_secret_key: "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"
+
+# ------------- CIDR BLOCK ----------------------- #
+
+cidr_block: 20.0.0.0/16
+app_cidr_block_subnet1: 20.0.3.0/24
+app_cidr_block_subnet2: 20.0.4.0/24
+cidr_block_subnet1: 20.0.1.0/24
+cidr_block_subnet2: 20.0.2.0/24
+web_destination: 0.0.0.0/0
+db_cidr_block_subnet1: 20.0.5.0/24
+db_cidr_block_subnet2: 20.0.6.0/24
+allow_ec2_login_from: 172.31.29.156/32
+# ----------- VPC NAME -------------------------- #
+
+vpc_name: CICDVPC_Dev
+
+# --------- Default VPC infomration for VPC peering --------#
+
+peer_vpc_id: vpc-6d888e04
+peer_vpc_destination: 172.31.0.0/16
+peer_region: ca-central-1
+default_subnet_id: subnet-311e324a
+default_vpc_destination: 20.0.0.0/16
+default_gateway_id: igw-ed97fd84
+destination: 0.0.0.0/0
+# ---------- REGION &  Availability Zones----------------------------- #
+
+region: ca-central-1
+Webserversubnet_az1: ca-central-1a
+Webserversubnet_az2: ca-central-1b
+appsubnet1_az: ca-central-1a
+appsubnet2_az: ca-central-1b
+
+# --------- Environment Tags -------------------- #
+
+tag_env: Dev
+Webserversubnet_env1: "{{tag_env}}"
+Webserversubnet_env2: "{{tag_env}}"
+appsubnet1_env: "{{tag_env}}"
+appsubnet2_env: "{{tag_env}}"
+
+# --------- Subnets ----------------------------- #
+
+Webserversubnet_name1: CICDPublicSubnet1
+Webserversubnet_name2: CICDPublicSubnet2
+appsubnet1_name: CICDPrivateSubnet1
+appsubnet2_name: CICDPrivateSubnet2
+
+# ------- Security Group ---------------------- #
+
+web_sg_name: CICD_WebServer_SecGroup
+web_sg_desc: CICD_WebServer_SecGroup
+app_sg_name: CICD_AppServer_SecGroup
+app_sg_desc: CICD_AppServer_SecGroup
+app_sg_rule_desc: Allow application access on port 8080
+
+# ------ Internet Gateway ------------------------ #
+
+igw_name: CICD_InternetGateway
+
+# ------ Nat Gateway ----------------------------- #
+
+nat_gateway_tag: CICD_NATGateway
+
+# ------ Route Table ----------------------------- #
+
+rt3_name: CICD_WebServer_Routetable
+apprt_name: CICD_APPServer_Routetable
+dbrt_name: CICD_DatabaseServer_Routetable
+app_protocol: tcp
+app_port_no: 8080
+
+# ----- Instance Name --------------------------- #
+
+instance_name1: CICDWebServer1
+instance_name2: CICDWebServer2
+app_instance_name1: CICDAppServer1
+app_instance_name2: CICDAppServer2
+
+# ----- AMI Image ------------------------------ #
+
+WebServer_ec2_image: ami-05f9d71283317f5c9
+App_ec2_image: ami-05f9d71283317f5c9
+
+
+# ---- EC2 Type ------------------------------- #
+
+WebServer_ec2_type: t2.micro
+App_ec2_type: t2.micro
+
+
+# ----- KeyPair ----------------------------- #
+
+key_pair: newenv
+
+
+# ----- Load Balancer Target group name ---- #
+
+target_group_name: CICDProject
+lb_name : CICDLoadBalancer
+

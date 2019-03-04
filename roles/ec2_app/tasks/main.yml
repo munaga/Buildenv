@@ -1,0 +1,24 @@
+# tasks file for roles/ec2
+- name: Creating {{instance_name}} EC2 instance
+  ec2:
+   aws_access_key: "{{aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   region: "{{region}}"
+   key_name: "{{key_pair}}"
+   exact_count: 1
+   count_tag:
+     Name: "{{instance_name}}"
+   instance_tags: { "Name":"{{instance_name}}"}
+   image: "{{ec2_image}}"
+   instance_type: "{{ec2_type}}"
+   group: "{{sg}}"
+   vpc_subnet_id: "{{ec2_subnet_id}}"
+   assign_public_ip: "{{public_ip}}"
+   wait: true
+   termination_protection: yes
+  register: ec2_instance
+- set_fact:
+   vpc_info: "{{ vpc_info | combine({ec2_name:ec2_instance}) }}"
+- name: Print Instance name output
+  debug:
+   var: vpc_info.webserver1.tagged_instances[0].id

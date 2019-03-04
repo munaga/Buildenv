@@ -1,0 +1,9 @@
+---
+- hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  name: Creating AppServer2 Subnet
+  tasks:
+  - name: Creating AppServer2 Subnet
+    include_role:
+      name: ../roles/appsubnet2

@@ -1,0 +1,11 @@
+- name: Copy the init script
+  copy:
+    src: files/jboss-as-service.sh
+    dest: /etc/init.d/jboss
+    mode: 0755
+
+- name: Starting Jboss server
+  service: 
+    name: jboss
+    state: started
+

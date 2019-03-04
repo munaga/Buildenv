@@ -1,0 +1,8 @@
+- name: Creating group on linux
+  group:
+      name: jboss
+      state: present
+- name: Create a user on linux
+  user:
+      name: jboss
+      group: jboss

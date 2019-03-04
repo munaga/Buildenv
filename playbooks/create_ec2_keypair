@@ -1,0 +1,9 @@
+---
+- name: create an EC2 KeyPair
+  hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  tasks:
+  - name: creating an EC2 KeyPair
+    include_role:
+     name: ../roles/create_ec2_keypair

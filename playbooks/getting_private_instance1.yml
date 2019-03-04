@@ -1,0 +1,33 @@
+---
+- name: Getting private IP address
+  hosts: tag_Name_CICDWebServer*
+  gather_facts: true
+  become: true
+  user: ec2-user
+  vars_files:
+  - ../variables_file.yml
+  vars:
+   ansible_ssh_private_key_file: "/etc/ansible/ansible.pem"
+  tasks:
+  - name: install wget
+    yum: name=wget state=present
+  - name: Installing the boto software
+    local_action: command sudo sh /etc/ansible/test.sh
+  - name: setting fact
+    set_fact: ec2_facts {}
+  - name: getting ip address
+    ec2_instance_facts:
+     aws_access_key: "{{aws_access_key}}"
+     aws_secret_key: "{{aws_secret_key}}"
+     region: "{{region}}"
+     filters: 
+        "tag:Name": CICDAppServer1
+    register: ec2_facts
+  - name: print output
+    debug:
+      var: ec2_facts.instances[0].private_ip_address
+  - set_fact:
+     private: "{{ec2_facts.instances[0].private_ip_address}}"
+  - name: Print output
+    debug:
+     var: private

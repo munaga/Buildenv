@@ -1,0 +1,19 @@
+---
+- import_playbook: vpc.yml
+- import_playbook: webserver1_subnet.yml
+- import_playbook: webserver2_subnet.yml
+- import_playbook: igw.yml
+- import_playbook: vpc_peering.yml
+- import_playbook: default_route_table.yml
+- import_playbook: web_routetable.yml
+- import_playbook: web_sg.yml
+- import_playbook: appserver1_subnet.yml
+- import_playbook: appserver2_subnet.yml
+- import_playbook: nat_gateway.yml
+- import_playbook: app_routetable.yml
+- import_playbook: appserver_sg.yml
+#- import_playbook: db1_subnet.yml
+#- import_playbook: db2_subnet.yml
+#- import_playbook: db_sg.yml
+#- import_playbook: db_routetable.yml
+#- import_playbook: rds_subnet_group.yml

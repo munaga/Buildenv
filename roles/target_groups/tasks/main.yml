@@ -1,0 +1,17 @@
+---
+# tasks file for roles/target_groups
+- name: Creating target groups
+  elb_target_group:
+   aws_access_key: "{{aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   name: "{{target_group_name}}"
+   region: "{{region}}"
+   protocol: http
+   port: 80
+   vpc_id: "{{vpc.vpc.id}}"
+   targets:
+   - Id: "{{vpc_info.webserver1.tagged_instances[0].id}}"
+     Port: 80
+   - Id: "{{vpc_info.webserver2.tagged_instances[0].id}}"
+     Port: 80
+   state: present

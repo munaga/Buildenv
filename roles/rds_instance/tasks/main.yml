@@ -1,0 +1,25 @@
+---
+# tasks file for roles/rds_instace
+- name: Creating RDS instance
+  rds:
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+    command: create
+    instance_name: "{{db_instance_name}}"
+    db_engine: "{{db_instance_engine}}"
+    size: "{{db_size}}"
+    region: "{{region}}"
+    instance_type: "{{db_instance_type}}"
+    username: "{{db_username}}"
+    password: "{{db_password}}"
+    multi_zone: yes
+    subnet: "{{rdssubnetgroup.subnet_group.name}}"
+    vpc_security_groups: "{{app_sg.group_id}}"
+    publicly_accessible: no
+    tags:
+      Environment: "{{db_tag}}"
+  register: rdsoutput
+- name: printing RDS endpoint
+  debug:
+   var: rdsoutput.instance.endpoint
+

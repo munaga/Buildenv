@@ -1,0 +1,7 @@
+---
+# tasks file for roles/webserver_software
+- import_tasks: install_awscli.yml
+- import_tasks: install.yml
+- import_tasks: configure1.yml
+- import_tasks: service.yml
+#- import_tasks: install_awscli.yml

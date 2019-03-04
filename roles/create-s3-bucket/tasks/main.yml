@@ -1,0 +1,17 @@
+---
+# tasks file for roles/create-s3-bucket
+- name: Create s3 bucket
+  s3_bucket:
+   aws_access_key: "{{aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   state: present
+   name: "{{s3_bucket_name}}"
+   region: "{{region}}"
+   policy: "{{lookup('file','bucketpolicy.json')}}"
+   versioning: yes
+   tags: 
+     Name: CICDDev
+  register: s3_url
+- name: Display s3 url
+  debug:
+   var: s3_url 

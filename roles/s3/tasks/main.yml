@@ -1,0 +1,11 @@
+---
+# tasks file for roles/s3
+- name: Creating logs directory
+  aws_s3:
+   aws_access_key: "{{aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   region: "{{region}}"
+   bucket: "{{s3_url.name}}"
+   object: logs
+   mode: create
+   permission: public-read-write

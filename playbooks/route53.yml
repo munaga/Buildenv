@@ -1,0 +1,7 @@
+---
+- name: Creating rote53
+  hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  roles:
+  - ../roles/route53

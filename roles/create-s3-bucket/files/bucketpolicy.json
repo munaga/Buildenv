@@ -1,0 +1,15 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1550755201089",
+    "Statement": [
+        {
+            "Sid": "Stmt1550755197714",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::cicdprojectbucketdev/*"
+        }
+    ]
+}

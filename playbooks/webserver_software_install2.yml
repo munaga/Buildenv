@@ -1,0 +1,12 @@
+---
+- name: Installing softwares on webserver
+  hosts: tag_Name_CICDWebServer2
+  become: true
+  remote_user: ec2-user
+  vars:
+    ansible_ssh_private_key_file: "/etc/ansible/ansible.pem"
+  vars_files:
+  - ../variables_file.yml
+  roles:
+    - ../roles/webserver_software1
+

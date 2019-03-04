@@ -1,0 +1,15 @@
+---
+# tasks file for roles/appsubnet1
+- name: Creating {{appsubnet1_name}} subnet
+  ec2_vpc_subnet:
+   aws_access_key: "{{aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   state: present
+   vpc_id: "{{vpc.vpc.id}}"
+   region: "{{region}}"
+   az: "{{appsubnet1_az}}"
+   cidr: "{{app_cidr_block_subnet1}}"
+   resource_tags:
+    Name: "{{appsubnet1_name}}"
+    Environment: "{{appsubnet1_env}}"
+  register: appsubnet1

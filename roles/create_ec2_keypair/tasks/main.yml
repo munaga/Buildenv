@@ -1,0 +1,13 @@
+---
+# tasks file for roles/create_ec2_keypair
+- name: Create an EC2 KeyPair
+  ec2_key:
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+    name: "{{key_pair}}"
+    region: "{{region}}"
+  register: ec2_key
+  
+- name: Save private key
+  copy: content="{{ec2_key.key.private_key}}" dest="/etc/ansible/{{key_pair}}.pem" mode=0400
+  when: ec2_key.changed

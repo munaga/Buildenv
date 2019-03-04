@@ -1,0 +1,21 @@
+---
+# tasks file for roles/deploy_application_jboss
+#- name: Deploying application on jboss
+#  jboss:
+#    deploy_path: /opt/wildfly_jboss/wildfly-15.0.1.Final/standalone/deployments
+#    deployment: OnlineBankingSystem.war
+#    state: absent
+- name: copy the war file to target machine
+  copy:
+   src: /var/lib/jenkins/workspace/CodeBuild-maven/target/OnlineBankingSystem-0.0.1-SNAPSHOT.war
+   dest: /tmp
+   owner: jboss
+   group: jboss
+   mode: 0664
+- name: Deploying application on jboss
+  jboss:
+    src: /tmp/OnlineBankingSystem-0.0.1-SNAPSHOT.war
+    deploy_path: /opt/wildfly_jboss/wildfly-15.0.1.Final/standalone/deployments
+    deployment: OnlineBankingSystem.war
+    state: present
+  notify: jboss restart

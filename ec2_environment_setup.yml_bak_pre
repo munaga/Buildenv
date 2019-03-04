@@ -1,0 +1,9 @@
+---
+- import_playbook: playbooks/vpc_setup.yml
+- import_playbook: playbooks/create_ec2_keypair
+- import_playbook: playbooks/webserver_setup.yml
+- import_playbook: playbooks/appserver_setup.yml
+- import_playbook: playbooks/s3-bucket.yml
+- import_playbook: playbooks/application_lb.yml
+- import_playbook: playbooks/route53.yml
+- import_playbook: playbooks/rds_instance.yml

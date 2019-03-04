@@ -1,0 +1,19 @@
+---
+- hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  tasks:
+  - name: Creating WebServer2
+    include_role:
+     name: ../roles/ec2_webserver
+    vars:
+     instance_name: "{{instance_name2}}"
+     ec2_type: "{{WebServer_ec2_type}}"
+     ec2_subnet_id: "{{output2.subnet.id}}"
+     ec2_image: "{{WebServer_ec2_image}}"
+     sg: "{{web_sg.group_name}}"
+     ec2_name: webserver2
+     public_ip: yes
+  - name: Print output
+    debug:
+       var: vpc_info

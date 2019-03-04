@@ -1,0 +1,11 @@
+- name: Install basic dependencies software
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+   - unzip
+   - wget
+   - libselinux-python
+   - libsemanage-python
+   - telnet
+

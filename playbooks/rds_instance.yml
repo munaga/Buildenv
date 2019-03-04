@@ -1,0 +1,7 @@
+---
+- name: Creating RDS instance
+  hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  roles:
+  - ../roles/rds_instance

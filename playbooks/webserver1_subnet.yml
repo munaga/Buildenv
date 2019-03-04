@@ -1,0 +1,13 @@
+---
+- hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  tasks:
+  - set_fact:
+     vpc_info: {}
+  - name: Creating Webserver1 subnet
+    include_role:
+      name: ../roles/subnet1
+  - name: Print Output
+    debug:
+     var: vpc_info

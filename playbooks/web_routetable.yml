@@ -1,0 +1,17 @@
+---
+- hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  tasks:
+  - name: Creating Web Routetable
+    include_role:
+      name: ../roles/routetable_webserver
+
+    vars:
+      rt_name: "{{rt3_name}}"
+      destination: "{{web_destination}}"
+      subnet1_id: "{{output1.subnet.id}}"
+      subnet2_id: "{{output2.subnet.id}}"
+      gateway_id: "{{igw.gateway_id}}"
+
+

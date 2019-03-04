@@ -1,0 +1,17 @@
+---
+# tasks file for roles/rds_subnet_group
+- name: Creating RDS Subnet groups
+  rds_subnet_group:
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+    state: present
+    name: "{{rds_group_name}}"
+    description: "{{rds_group_description}}"
+    region: "{{region}}"
+    subnets:
+      - "{{ appsubnet1.subnet.id }}" 
+      - "{{ appsubnet2.subnet.id }}" 
+  register: rdssubnetgroup
+- name: printing RDS subnet group
+  debug:
+    var: rdssubnetgroup

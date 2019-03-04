@@ -1,0 +1,12 @@
+---
+# tasks file for roles/igw
+- name: creating internet gateway
+  ec2_vpc_igw:
+   aws_access_key: "{{ aws_access_key}}"
+   aws_secret_key: "{{aws_secret_key}}"
+   region: "{{region}}"
+   vpc_id: "{{vpc.vpc.id}}"
+   state: present
+   tags:
+    Name: "{{igw_name}}"
+  register: igw

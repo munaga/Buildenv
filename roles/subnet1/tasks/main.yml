@@ -1,0 +1,15 @@
+---
+# tasks file for roles/subnet1
+- name: Creating "{{Webserversubnet_name1}}" subnet
+  ec2_vpc_subnet:
+    aws_access_key: "{{ aws_access_key}}"
+    aws_secret_key: "{{ aws_secret_key}}"
+    state: present
+    vpc_id: "{{vpc.vpc.id}}"
+    region: "{{region}}"
+    az: "{{Webserversubnet_az1}}"
+    cidr: "{{cidr_block_subnet1}}"
+    resource_tags:
+      Name: "{{Webserversubnet_name1}}"
+      Environment: "{{Webserversubnet_env1}}"
+  register: output1

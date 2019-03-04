@@ -1,0 +1,7 @@
+---
+- hosts: webserver
+  vars_files:
+  - ../variables_file.yml
+  roles:
+  - ../roles/target_groups
+  - ../roles/app_lb

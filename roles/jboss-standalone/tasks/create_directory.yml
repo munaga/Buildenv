@@ -1,0 +1,9 @@
+- name: Creating Jboss directory
+  file:
+      path: /opt/wildfly_jboss/
+      owner: jboss
+      group: jboss
+      mode: 0775
+      recurse: yes
+      state: directory
+
