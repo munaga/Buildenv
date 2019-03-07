@@ -5,8 +5,8 @@
 - import_playbook: igw.yml
 - import_playbook: vpc_peering.yml
 - import_playbook: default_route_table.yml
-#- import_playbook: web_routetable.yml
-#- import_playbook: web_sg.yml
+- import_playbook: web_routetable.yml
+- import_playbook: web_sg.yml
 - import_playbook: appserver1_subnet.yml
 - import_playbook: appserver2_subnet.yml
 - import_playbook: nat_gateway.yml
