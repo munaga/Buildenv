@@ -11,9 +11,6 @@ app_cidr_block_subnet1: 20.0.3.0/24
 app_cidr_block_subnet2: 20.0.4.0/24
 cidr_block_subnet1: 20.0.1.0/24
 cidr_block_subnet2: 20.0.2.0/24
-web_destination: 0.0.0.0/0
-db_cidr_block_subnet1: 20.0.5.0/24
-db_cidr_block_subnet2: 20.0.6.0/24
 allow_ec2_login_from: 172.31.29.156/32
 # ----------- VPC NAME -------------------------- #
 
@@ -21,18 +18,18 @@ vpc_name: CICDVPC_Dev
 
 # --------- Default VPC infomration for VPC peering --------#
 
-peer_vpc_id: vpc-856088ec
+peer_vpc_id: vpc-72935c19
 peer_vpc_destination: 172.31.0.0/16
-peer_region: eu-north-1
-default_subnet_id: subnet-24270d6e
+peer_region: eu-central-1
+default_subnet_id: subnet-bacf05c7
 default_vpc_destination: 20.0.0.0/16
-default_gateway_id: igw-719b7518
+default_gateway_id: igw-281e9140
 destination: 0.0.0.0/0
 # ---------- REGION &  Availability Zones----------------------------- #
 
-region: eu-north-1
-appsubnet1_az: eu-north-1a
-appsubnet2_az: eu-north-1b
+region: eu-central-1
+appsubnet1_az: eu-central-1a
+appsubnet2_az: eu-central-1b
 
 # --------- Environment Tags -------------------- #
 
