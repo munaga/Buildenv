@@ -28,17 +28,19 @@ destination: 0.0.0.0/0
 # ---------- REGION &  Availability Zones----------------------------- #
 
 region: eu-central-1
+Webserversubnet_az1: eu-central-1a
 appsubnet1_az: eu-central-1a
 appsubnet2_az: eu-central-1b
 
 # --------- Environment Tags -------------------- #
 
 tag_env: Dev
+Webserversubnet_env1: "{{tag_env}}"
 appsubnet1_env: "{{tag_env}}"
 appsubnet2_env: "{{tag_env}}"
 
 # --------- Subnets ----------------------------- #
-
+Webserversubnet_name1: CICDPublicSubnet1
 appsubnet1_name: CICDPrivateSubnet1
 appsubnet2_name: CICDPrivateSubnet2
 
