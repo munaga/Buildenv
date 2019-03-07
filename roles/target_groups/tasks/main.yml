@@ -10,8 +10,8 @@
    port: 80
    vpc_id: "{{vpc.vpc.id}}"
    targets:
-   - Id: "{{vpc_info.webserver1.tagged_instances[0].id}}"
-     Port: 80
-   - Id: "{{vpc_info.webserver2.tagged_instances[0].id}}"
-     Port: 80
+   - Id: "{{vpc_info.appserver11.tagged_instances[0].id}}"
+     Port: 8080
+   - Id: "{{vpc_info.appserver2.tagged_instances[0].id}}"
+     Port: 8080
    state: present
