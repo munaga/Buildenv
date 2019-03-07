@@ -84,8 +84,8 @@ app_instance_name2: CICDAppServer2
 
 # ----- AMI Image ------------------------------ #
 
-WebServer_ec2_image: ami-05f9d71283317f5c9
-App_ec2_image: ami-05f9d71283317f5c9
+WebServer_ec2_image: ami-0dadc1240600ddf81
+App_ec2_image: ami-0dadc1240600ddf81
 
 
 # ---- EC2 Type ------------------------------- #
