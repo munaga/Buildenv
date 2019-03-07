@@ -3,7 +3,7 @@
   hosts: webserver
   become: true
   vars_files:
-  - /var/lib/jenkins/workspace/NewEnvironmentBuild/variables_file.yml
+  - ../variables_file.yml
   tasks:
   - set_fact:
      cidr_block: "{{cidr_block}}"
