@@ -30,6 +30,7 @@ destination: 0.0.0.0/0
 
 region: eu-central-1
 Webserversubnet_az1: eu-central-1a
+Webserversubnet_az2: eu-central-1b
 appsubnet1_az: eu-central-1a
 appsubnet2_az: eu-central-1b
 
@@ -37,11 +38,13 @@ appsubnet2_az: eu-central-1b
 
 tag_env: Dev
 Webserversubnet_env1: "{{tag_env}}"
+Webserversubnet_env2: "{{tag_env}}"
 appsubnet1_env: "{{tag_env}}"
 appsubnet2_env: "{{tag_env}}"
 
 # --------- Subnets ----------------------------- #
 Webserversubnet_name1: CICDPublicSubnet1
+Webserversubnet_name2: CICDPublicSubnet2
 appsubnet1_name: CICDPrivateSubnet1
 appsubnet2_name: CICDPrivateSubnet2
 
