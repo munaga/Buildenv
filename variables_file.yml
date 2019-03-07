@@ -91,7 +91,7 @@ App_ec2_type: t2.micro
 
 # ----- KeyPair ----------------------------- #
 
-key_pair: newenv
+key_pair: devopkey
 
 
 # ----- Load Balancer Target group name ---- #
