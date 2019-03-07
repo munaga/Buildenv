@@ -104,3 +104,6 @@ key_pair: newenv
 target_group_name: CICDProject
 lb_name : CICDLoadBalancer
 
+# For route53 records #
+dns_name: myawsdev.net
+new_dns_name: ctlshop.myawsdev.net
