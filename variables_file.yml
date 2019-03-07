@@ -11,6 +11,7 @@ app_cidr_block_subnet1: 20.0.3.0/24
 app_cidr_block_subnet2: 20.0.4.0/24
 cidr_block_subnet1: 20.0.1.0/24
 cidr_block_subnet2: 20.0.2.0/24
+web_destination: 0.0.0.0/0
 allow_ec2_login_from: 172.31.29.156/32
 # ----------- VPC NAME -------------------------- #
 
@@ -45,7 +46,8 @@ appsubnet1_name: CICDPrivateSubnet1
 appsubnet2_name: CICDPrivateSubnet2
 
 # ------- Security Group ---------------------- #
-
+web_sg_name: CICD_WebServer_SecGroup
+web_sg_desc: CICD_WebServer_SecGroup
 app_sg_name: CICD_AppServer_SecGroup
 app_sg_desc: CICD_AppServer_SecGroup
 app_sg_rule_desc: Allow application access on port 8080
@@ -60,7 +62,7 @@ nat_gateway_tag: CICD_NATGateway
 
 # ------ Route Table ----------------------------- #
 
-
+rt3_name: CICD_WebServer_Routetable
 apprt_name: CICD_APPServer_Routetable
 
 app_protocol: tcp
