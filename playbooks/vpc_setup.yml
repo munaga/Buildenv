@@ -1,6 +1,6 @@
 ---
 - import_playbook: vpc.yml
-#- import_playbook: webserver1_subnet.yml
+- import_playbook: webserver1_subnet.yml
 #- import_playbook: webserver2_subnet.yml
 - import_playbook: igw.yml
 - import_playbook: vpc_peering.yml
