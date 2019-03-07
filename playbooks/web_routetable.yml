@@ -11,7 +11,7 @@
       rt_name: "{{rt3_name}}"
       destination: "{{web_destination}}"
       subnet1_id: "{{output1.subnet.id}}"
-      subnet2_id: "{{output2.subnet.id}}"
+      #subnet2_id: "{{output2.subnet.id}}"
       gateway_id: "{{igw.gateway_id}}"
 
 
