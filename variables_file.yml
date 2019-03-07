@@ -85,8 +85,8 @@ App_ec2_image: ami-0ae131389338616a1
 
 # ---- EC2 Type ------------------------------- #
 
-WebServer_ec2_type: t2.micro
-App_ec2_type: t2.micro
+
+App_ec2_type: t2.medium
 
 
 # ----- KeyPair ----------------------------- #
