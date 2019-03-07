@@ -10,7 +10,7 @@
      Name: "{{rt_name}}"
     subnets:
     - "{{subnet1_id}}"
-    #- "{{subnet2_id}}"
+    - "{{subnet2_id}}"
     routes:
      - dest: "{{destination}}"
        gateway_id: "{{gateway_id }}"
