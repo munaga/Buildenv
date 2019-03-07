@@ -77,7 +77,7 @@ app_port_no: 8080
 
 # ----- Instance Name --------------------------- #
 
-instance_name1: CICDWebServer1-test
+instance_name1: CICDWebServer1-test-1
 instance_name2: CICDWebServer2-test
 app_instance_name1: CICDAppServer1
 app_instance_name2: CICDAppServer2
