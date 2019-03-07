@@ -9,5 +9,5 @@
   register: ec2_key
   
 - name: Save private key
-  copy: content="{{ec2_key.key.private_key}}" dest="/etc/ansible/{{key_pair}}.pem" mode=0400
+  copy: content="{{ec2_key.key.private_key}}" dest="/tmp/{{key_pair}}.pem" mode=0400
   when: ec2_key.changed
