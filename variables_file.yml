@@ -37,22 +37,16 @@ appsubnet2_az: eu-north-1b
 # --------- Environment Tags -------------------- #
 
 tag_env: Dev
-Webserversubnet_env1: "{{tag_env}}"
-Webserversubnet_env2: "{{tag_env}}"
 appsubnet1_env: "{{tag_env}}"
 appsubnet2_env: "{{tag_env}}"
 
 # --------- Subnets ----------------------------- #
 
-Webserversubnet_name1: CICDPublicSubnet1
-Webserversubnet_name2: CICDPublicSubnet2
 appsubnet1_name: CICDPrivateSubnet1
 appsubnet2_name: CICDPrivateSubnet2
 
 # ------- Security Group ---------------------- #
 
-web_sg_name: CICD_WebServer_SecGroup
-web_sg_desc: CICD_WebServer_SecGroup
 app_sg_name: CICD_AppServer_SecGroup
 app_sg_desc: CICD_AppServer_SecGroup
 app_sg_rule_desc: Allow application access on port 8080
@@ -67,22 +61,21 @@ nat_gateway_tag: CICD_NATGateway
 
 # ------ Route Table ----------------------------- #
 
-rt3_name: CICD_WebServer_Routetable
+
 apprt_name: CICD_APPServer_Routetable
-dbrt_name: CICD_DatabaseServer_Routetable
+
 app_protocol: tcp
 app_port_no: 8080
 
 # ----- Instance Name --------------------------- #
 
-instance_name1: CICDWebServer1-test-1
-instance_name2: CICDWebServer2-test
+
 app_instance_name1: CICDAppServer1
 app_instance_name2: CICDAppServer2
 
 # ----- AMI Image ------------------------------ #
 
-WebServer_ec2_image: ami-0dadc1240600ddf81
+
 App_ec2_image: ami-0dadc1240600ddf81
 
 
