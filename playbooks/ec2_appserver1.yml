@@ -10,7 +10,6 @@
      instance_name: "{{app_instance_name1}}"
      ec2_type: "{{App_ec2_type}}"
      ec2_image: "{{App_ec2_image}}"
-     myip: 20.0.3.250
      ec2_name: appserver1
      ec2_subnet_id: "{{appsubnet1.subnet.id}}"
      sg: "{{app_sg.group_name}}"
