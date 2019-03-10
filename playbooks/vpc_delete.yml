@@ -1,0 +1,11 @@
+---
+- name: deleting VPC 
+  hosts: webserver
+  become: true
+  vars_files:
+  - ../variables_file.yml
+  tasks:
+   - name: deleting "{{vpc_name}}" VPC
+     ec2_vpc:
+      name: "{{vpc_name}}"
+      region: "{{region}}"
