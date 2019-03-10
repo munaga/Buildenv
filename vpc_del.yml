@@ -1,0 +1,2 @@
+---
+- import_playbook: playbooks/vpc_delete.yml
