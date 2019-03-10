@@ -9,3 +9,4 @@
      ec2_vpc_net:
       name: "{{vpc_name}}"
       region: "{{region}}"
+      state: absent
