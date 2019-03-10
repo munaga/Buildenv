@@ -23,4 +23,4 @@
    vpc_info: "{{ vpc_info | combine({ec2_name:ec2_instance}) }}"
 - name: Print Instance name output
   debug:
-   var: vpc_info.webserver1.tagged_instances[0].id
+   var: vpc_info.appserver1.tagged_instances[0].id
