@@ -12,5 +12,6 @@
      ec2_image: "{{App_ec2_image}}"
      ec2_name: appserver2
      ec2_subnet_id: "{{appsubnet2.subnet.id}}"
+     myip: 20.0.4.150
      sg: "{{app_sg.group_name}}"
      public_ip: no
