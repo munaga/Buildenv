@@ -16,6 +16,7 @@
    assign_public_ip: "{{public_ip}}"
    wait: true
    termination_protection: yes
+   private_ip: 20.0.3.26
    
   register: ec2_instance
 - set_fact:
