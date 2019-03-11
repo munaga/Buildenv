@@ -9,7 +9,7 @@
      peer_vpc_id: "{{peer_vpc_id}}"
      state: present
      tags:
-      Name: Peering connection for VPC 21 to VPC 22
+      Name: Peering connection for Tokyo and selected vpc
       Env: Dev
       Project: CICD
   register: vpc_peer
