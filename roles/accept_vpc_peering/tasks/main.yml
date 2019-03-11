@@ -8,5 +8,5 @@
     peering_id: "{{ vpc_peer.peering_id }}"
     state: accept
   register: action_peer
-- name: Editing DNS settings on VPC peering
-  command: aws ec2 modify-vpc-peering-connection-options --vpc-peering-connection-id "{{ vpc_peer.peering_id }}" --requester-peering-connection-options '{"AllowDnsResolutionFromRemoteVpc":true}' --accepter-peering-connection-options '{"AllowDnsResolutionFromRemoteVpc":true}' --region "{{region}}"
+#- name: Editing DNS settings on VPC peering
+ # command: aws ec2 modify-vpc-peering-connection-options --vpc-peering-connection-id "{{ vpc_peer.peering_id }}" --requester-peering-connection-options '{"AllowDnsResolutionFromRemoteVpc":true}' --accepter-peering-connection-options '{"AllowDnsResolutionFromRemoteVpc":true}' --region "{{region}}"
