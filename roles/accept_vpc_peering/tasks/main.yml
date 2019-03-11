@@ -5,6 +5,7 @@
     aws_access_key: "{{aws_access_key}}"
     aws_secret_key: "{{aws_secret_key}}"
     region: "{{peer_region}}"
+    peer_region: "{{peer_region}}"
     peering_id: "{{ vpc_peer.peering_id }}"
     state: accept
   register: action_peer
