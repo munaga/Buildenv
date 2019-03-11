@@ -7,6 +7,7 @@
      region: "{{region}}"
      vpc_id: "{{vpc.vpc.id}}"
      peer_vpc_id: "{{peer_vpc_id}}"
+     peer_region: "{{peer_region}}"
      state: present
      tags:
       Name: Peering connection for Tokyo and selected vpc
