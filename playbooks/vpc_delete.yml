@@ -6,6 +6,10 @@
   vars_files:
   - ../variables_file.yml
   tasks:
+   - name: Terminate EC2 instances
+   - name: Delete Load balancer
+   - name: Delete NAT gateway
+   - name: Delete VPC peering
    - name: deleting "{{vpc_name}}" VPC
      ec2_vpc_net:
       name: "{{vpc_name}}"
