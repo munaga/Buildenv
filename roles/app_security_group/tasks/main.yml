@@ -16,6 +16,11 @@
      - 8080
      group_id: "{{web_sg.group_id}}"
      rule_desc: "{{app_sg_rule_desc}}"
+   - proto: tcp
+     ports:
+     - 22
+     cidr_ip: 10.0.0.0/24
+     rule_desc: allow from tokyo jenkins
   register: app_sg
 - name: print app security group
   debug:
