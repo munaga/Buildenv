@@ -8,7 +8,7 @@
     vpc_id: "{{peer_vpc_id}}"
     region: "{{peer_region}}"
     tags:
-     Name: VPC_Peering_Default_RouteTable
+     Name: VPC_Peering_RouteTableToConnectFrankfurt
     subnets:
     - "{{default_subnet_id}}"
     routes:
