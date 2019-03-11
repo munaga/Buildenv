@@ -19,12 +19,12 @@ vpc_name: CICDVPC_Dev
 
 # --------- Default VPC infomration for VPC peering --------#
 
-peer_vpc_id: vpc-72935c19
-peer_vpc_destination: 172.31.0.0/16
-peer_region: eu-central-1
-default_subnet_id: subnet-bacf05c7
+peer_vpc_id: vpc-0ffb6202af814741f
+peer_vpc_destination: 10.0.0.0/24
+peer_region: ap-northeast-1
+default_subnet_id: subnet-09d0fd55cf186dbe6
 default_vpc_destination: 20.0.0.0/16
-default_gateway_id: igw-281e9140
+default_gateway_id: nat-0edd982fd97afd656
 destination: 0.0.0.0/0
 # ---------- REGION &  Availability Zones----------------------------- #
 
