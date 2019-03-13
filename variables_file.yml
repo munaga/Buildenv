@@ -74,8 +74,8 @@ app_port_no: 8080
 # ----- Instance Name --------------------------- #
 
 
-app_instance_name1: CICDAppServer1withip
-app_instance_name2: CICDAppServer2withip
+app_instance_name1: CICDAppServer1
+app_instance_name2: CICDAppServer2
 
 # ----- AMI Image ------------------------------ #
 
