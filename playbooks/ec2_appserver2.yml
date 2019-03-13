@@ -13,5 +13,5 @@
      ec2_name: appserver2
      ec2_subnet_id: "{{appsubnet2.subnet.id}}"
      sg: "{{app_sg.group_name}}"
-     public_ip: yes
-     ip: 20.0.4.150
+     public_ip: no
+     #ip: 20.0.4.150
