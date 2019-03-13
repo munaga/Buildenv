@@ -15,8 +15,8 @@
    vpc_subnet_id: "{{ec2_subnet_id}}"
    assign_public_ip: "{{public_ip}}"
    wait: true
-   termination_protection: yes
-   private_ip: "{{ip}}"
+   termination_protection: no
+   #private_ip: "{{ip}}"
    
   register: ec2_instance
 - set_fact:
