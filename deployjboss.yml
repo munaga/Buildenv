@@ -1,0 +1,15 @@
+- name: Playbook to copy war to jboss servers and restart jboss
+  hosts: tag_Name_CICDAppServer*
+  become: true
+  tasks:
+   - name: Copy war file
+     copy:
+       src: /opt/ansible/target/onlineshopping.war
+       dest: /opt/jboss-eap-6.4/standalone/deployments/
+       owner: jboss
+       group: jboss
+     notify:
+      - Restart jboss
+  handlers:
+    - name: Restart jboss
+      service: name=jboss state=restarted
