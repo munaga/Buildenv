@@ -74,8 +74,9 @@ app_port_no: 8080
 # ----- Instance Name --------------------------- #
 
 
-app_instance_name1: CICDAppServer1
-app_instance_name2: CICDAppServer2
+#app_instance_name1: CICDAppServer1
+#app_instance_name2: CICDAppServer2
+app_instance_name1: Docker2
 
 # ----- AMI Image ------------------------------ #
 
@@ -101,4 +102,4 @@ lb_name : CICDLoadBalancer
 
 # For route53 records #
 dns_name: myawsdev.net
-new_dns_name: ctlindiashop.myawsdev.net
+new_dns_name: online.myawsdev.net
